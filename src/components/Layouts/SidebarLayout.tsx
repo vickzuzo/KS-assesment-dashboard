@@ -91,7 +91,7 @@ const SidebarLayout = () => {
   useOnClickOutside(sidebarRef, () => setShowSidebar(false));
 
   return (
-    <div className="bg-white dark:bg-slate-800 flex">
+    <div className="bg-white dark:bg-slate-800 flex min-h-screen">
       <div
         className={` ${
           !showSidebar && "hidden"

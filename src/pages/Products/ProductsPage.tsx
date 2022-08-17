@@ -1,7 +1,8 @@
 import React from "react";
+import { PageHeader } from "../../components";
 
 const ProductsPage = () => {
-  return <div>ProductsPage</div>;
+  return <PageHeader title="Products Page" />;
 };
 
 export default ProductsPage;

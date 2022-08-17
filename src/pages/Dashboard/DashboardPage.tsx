@@ -124,18 +124,21 @@ const DashboardPage = () => {
         ))}
       </div>
       <div className="flex flex-col justify-between md:flex-row">
-        <div className="rounded-md shadow-md w-full md:w-1/3 md:mr-5 bg-white dark:text-white dark:bg-slate-800 p-7">
+        <div className="mb-10 rounded-md shadow-md w-full md:w-1/3 md:mr-5 bg-white dark:text-white dark:bg-slate-800 p-7 md:mb-0">
           <p className="text-sm">Top Selling Categories</p>
           {/* <img src={mainChart} alt="" className='w-full h-full dark:hidden' /> */}
         </div>
-        <div className="w-full md:w-2/3 rounded-md shadow-md bg-white dark:text-white dark:bg-slate-800 p-7">
+        <div className="mb-10 w-full md:w-2/3 rounded-md shadow-md bg-white dark:text-white dark:bg-slate-800 p-7 md:mb-0">
           <p className="text-sm ">Latest Added Products</p>
-          <div className="my-10">
+          <div className="my-10 max-w-full overflow-x-scroll">
             <table className="w-full text-sm font-normal table-auto">
               <tbody>
                 {products.map((product, _idx) => (
-                  <tr className="my-3" key={product.id}>
-                    <td className="text-left py-2">
+                  <tr
+                    className="flex items-center justify-between my-3"
+                    key={product.id}
+                  >
+                    <td className="w-64 md:w-auto text-left py-2 ">
                       <div className="flex flex-row">
                         <img
                           src={product.image}
@@ -152,15 +155,19 @@ const DashboardPage = () => {
                         </div>
                       </div>
                     </td>
-                    <td className="text-left">
+                    <td className="block mx-10 md:mx-0 text-left">
                       <span className="text-text_gray uppercase mr-1">
                         SKU:
                       </span>
                       <span className="font-normal">{product.sku}</span>
                     </td>
-                    <td className="text-left capitalize">{product.category}</td>
-                    <td className="text-left">{product.created_at}</td>
-                    <td className="text-left">
+                    <td className="block mx-10 md:mx-0 text-left capitalize">
+                      {product.category}
+                    </td>
+                    <td className="block mx-10 md:mx-0 text-left">
+                      {product.created_at}
+                    </td>
+                    <td className="block mx-10 md:mx-0 text-left">
                       <div
                         className={`capitalize w-fit font-semibold ${
                           product.status === "published"
